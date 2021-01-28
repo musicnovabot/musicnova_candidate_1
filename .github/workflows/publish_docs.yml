@@ -15,14 +15,24 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      - name: Cache
+        uses: actions/cache@v2.1.3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            ~/build/webpack/
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
-        run: ./gradlew dokkaHtml
+        run: ./gradlew dokkaJekyll
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build/dokka/html/ # The folder the action should deploy.
+          FOLDER: build/dokka/jekyll/ # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch

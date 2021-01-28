@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization") version "1.4.10"
+    id("org.jetbrains.dokka")
 }
 
 group = "eu.musicnova"
@@ -8,6 +9,7 @@ version = "0.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 kotlin {
