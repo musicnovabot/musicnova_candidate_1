@@ -1,0 +1,8 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+eu.musicnova.api
+eu.musicnova.musicnova
+eu.musicnova.musicnova.scheduler.jobs
+eu.musicnova.musicnova.web
+
