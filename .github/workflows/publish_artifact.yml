@@ -1,4 +1,4 @@
-name: Pubsish Docs
+name: Pubsish Arifact
 on:
   push:
     branches:
