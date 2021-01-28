@@ -1,0 +1,75 @@
+server:
+  port: 8080
+  jetty:
+    accesslog:
+      enabled: false
+    threads:
+      min: 2
+      max: 10
+      selectors: 2
+spring:
+  mvc:
+    static-path-pattern: /resources/**
+  web:
+    resources:
+      static-locations: classpath:/files/web/resources/
+      cache:
+        cachecontrol:
+          cache-private: false
+          must-revalidate: false
+          max-age: 31536000
+          cache-public: true
+
+
+  thymeleaf:
+    cache: true
+    prefix: classpath:/files/web/templates/
+  quartz:
+    auto-startup: true
+    startup-delay: 0s
+    overwrite-existing-jobs: false
+    job-store-type: jdbc
+    scheduler-name: musicnoava-scheduler
+    jdbc:
+      initialize-schema: always
+      comment-prefix: '#musicnova'
+    properties:
+      org:
+        quartz:
+          threadPool:
+            threadCount: 4
+  datasource:
+    driver-class-name: org.h2.Driver
+    #data-password: ''
+    #data-username: ''
+    url: 'jdbc:h2:file:./database;TRACE_LEVEL_FILE=0;TRACE_LEVEL_SYSTEM_OUT=0;DB_CLOSE_DELAY=-1'
+    type: com.zaxxer.hikari.HikariDataSource
+
+    hikari:
+      auto-commit: true
+      minimum-idle: 2
+      maximum-pool-size: 15
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: true
+
+  session:
+    jdbc:
+      initialize-schema: always
+  config:
+    # todo
+    location:
+      - 'file:./config.yml'
+      - 'file:./config.yaml'
+logging:
+  file:
+    name: logs/latest.log
+    path: logs/
+  logback:
+    rollingpolicy:
+      total-size-cap: 100MB
+      max-history: 20
+      clean-history-on-start: false
+      max-file-size: 10MB

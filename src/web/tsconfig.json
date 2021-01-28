@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "outDir": "../../build/webpack",
+        "sourceMap": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": false,
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "target": "ES5",
+        "allowJs": true,
+        "lib": ["es6","dom"],
+        "jsx": "react",
+      "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "./**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

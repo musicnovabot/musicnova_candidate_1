@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+</head>
+<body class="">
+<div>
+    <div class="shadow-xl rounded py-4 px-8 loginBox">
+        <h1 class="title">Login</h1>
+        <form id="loginForm" >
+            <div class="field">
+                <div class="control">
+                    <input id="input_username" class="input" type="text" placeholder="Username">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input id="input_password" class="input " type="password" placeholder="Password">
+                </div>
+            </div>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <div class="block">
+                <button class="button is-primary">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
