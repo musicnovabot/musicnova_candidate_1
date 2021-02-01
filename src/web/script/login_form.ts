@@ -6,14 +6,15 @@ import {showError} from "./Utils";
 
 import Cleave from "cleave.js"
 
-async function sendLoginRequest(username: string, password: string, otp: string | null): Promise<AxiosResponse> {
+async function sendLoginRequest(username: string, password: string, csrfParam: string, csrfToken: string, otp: string | null): Promise<AxiosResponse> {
     let formData = new URLSearchParams()
     formData.append("username", username)
     formData.append("password", password)
     if (otp != null) formData.append("otp", otp)
     return axios.post("/internal/login", stringifyQuery({
         username: username,
-        password: password
+        password: password,
+        [csrfParam] : csrfToken,
     }), {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -32,6 +33,9 @@ function onLoginSuccess() {
 }
 
 export function appendToLoginForm() {
+
+    let csrfParamName = document.querySelector<HTMLMetaElement>('#csrf_paramName')!.content!
+    let csrToken = document.querySelector<HTMLMetaElement>('#csrf_token')!.content!
 
     let loginForm = document.querySelector<HTMLFormElement>('#loginForm')!
     let usernameInput = document.querySelector<HTMLInputElement>("#input_username")!
@@ -84,7 +88,7 @@ export function appendToLoginForm() {
 
         function sendRequestAndHandleResult(otp: string | null = null) {
             setInputElementsEnabled(elements, false)
-            sendLoginRequest(username, password, otp).then((response) => {
+            sendLoginRequest(username, password,csrfParamName,csrToken, otp).then((response) => {
                 console.log(response)
                 let status = response.data.status
                 switch (status) {

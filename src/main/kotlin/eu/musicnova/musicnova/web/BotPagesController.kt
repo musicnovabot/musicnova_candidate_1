@@ -10,7 +10,7 @@ class BotPagesController {
 
     @GetMapping("/bot/")
     fun getBot(model: Model): String {
-model.set("content","test bot content")
+        model.set("content", "test bot content")
         return "bot-dashboard"
     }
 

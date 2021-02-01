@@ -33,6 +33,7 @@ repositories {
     mavenCentral()
     jcenter()
     maven("https://bintray.com/kotlin/")
+    maven("https://jitpack.io/")
 }
 
 dependencies {
@@ -47,6 +48,33 @@ dependencies {
     //implementation("org.springframework.shell:spring-shell-starter:2.0.0.RELEASE")
     implementation("org.springframework.session:spring-session-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-security")
+
+    implementation("com.google.auto.service:auto-service:1.0-rc7")
+    kapt("com.google.auto.service:auto-service:1.0-rc7")
+    implementation("org.atteo.classindex:classindex:3.4")
+    kapt("org.atteo.classindex:classindex:3.4")
+
+    implementation("org.fusesource.jansi:jansi:2.1.1")
+    implementation("com.github.oshi:oshi-core:5.3.7")
+    implementation("com.github.ben-manes.caffeine:caffeine:2.8.8")
+    implementation("com.github.ben-manes.caffeine:guava:2.8.8")
+
+    implementation("com.github.manevolent:ts3j:1.0.2")
+    implementation("net.dv8tion:JDA:4.2.0_227")
+    implementation("com.sedmelluq:lavaplayer:1.3.66")
+    implementation("org.greenrobot:eventbus:3.2.0")
+    implementation("io.ktor:ktor-client-okhttp:1.5.1")
+    implementation("com.coreoz:windmill:1.2.0")
+
+    implementation("info.picocli:picocli:4.6.1")
+
+    //implementation("com.graphql-java:graphql-java-spring-boot-starter-webmvc:2.0")
+    implementation("com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0")
+    implementation("com.graphql-java-kickstart:graphiql-spring-boot-starter:11.0.0")
+    implementation("com.graphql-java:graphql-java:14.0")
+    implementation("com.expediagroup", "graphql-kotlin-schema-generator", "3.7.0")
+    //implementation("com.expediagroup", "graphql-kotlin-spring-server", "3.7.0")
+
     //TODO("remove on release")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation(project(":musicnova-web-shared"))
@@ -96,14 +124,12 @@ tasks {
         outputs.dir(file("$buildDir/webpack"))
         inputs.dir(file("src/web"))
         outputs.cacheIf { true }
-        dependsOn("npmInstall", preCopyResName,":musicnova-web-shared:jsBrowserWebpack")
+        dependsOn("npmInstall", preCopyResName, ":musicnova-web-shared:jsBrowserWebpack")
 
         if (webpack_minimize_bool)
             setArgs(listOf("run", "build-prod"))
         else
             setArgs(listOf("run", "build-dev"))
-
-
 
 
     }
@@ -153,4 +179,7 @@ idea {
         }
 
     }
+}
+tasks {
+
 }

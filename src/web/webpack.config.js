@@ -9,10 +9,13 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const JsonMinimizerPlugin = require("json-minimizer-webpack-plugin");
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
+const ResourceHintWebpackPlugin = require('resource-hints-webpack-plugin');
+const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 const distFolder = '../../build/webpack/'
 
-const tempates = [ "login", "bot-dashboard"]
+const tempates = ["login", "bot-dashboard"]
 
 const config = {
     entry: {
@@ -157,6 +160,10 @@ const config = {
             MUSICNOVA_VERSION: JSON.stringify('0.0.1-SNAPSHOT')
         }),
         new LodashModuleReplacementPlugin,
+        new ResourceHintWebpackPlugin(),
+        new HtmlWebpackTagsPlugin({
+            links: ['manifest.json']
+        }),
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             openAnalyzer: false,

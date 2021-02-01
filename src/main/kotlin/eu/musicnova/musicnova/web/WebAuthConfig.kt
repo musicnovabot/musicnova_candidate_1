@@ -2,29 +2,46 @@ package eu.musicnova.musicnova.web
 
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.zaxxer.hikari.HikariDataSource
+import eu.musicnova.musicnova.MusicnovaUserDetailsManager
 import eu.musicnova.webshared.RESTLoginRequestResponse
 import eu.musicnova.webshared.LoginRequestResponseStatus
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Primary
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
+import javax.sql.DataSource
 
 @EnableWebSecurity
 class WebAuthConfig(
-    val objectMapper: ObjectMapper
+    private val objectMapper: ObjectMapper,
+    private val musicnovaUserDetailsManager: MusicnovaUserDetailsManager,
+    private val dataSource: HikariDataSource
 ) : WebSecurityConfigurerAdapter() {
 
     @Autowired
-    lateinit var passwordEncoder: BCryptPasswordEncoder
+    lateinit var passwordEncoder: PasswordEncoder
     override fun configure(auth: AuthenticationManagerBuilder) {
-        auth.inMemoryAuthentication()
-            .withUser("admin").password(passwordEncoder.encode("123456")).roles("USER")
+        //auth.apply(musicnovaUserDetailsManager)
+        //auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder.encode("123456")).roles("USER")
+
+        //auth.jdbcAuthentication().withDefaultSchema()
+        auth.jdbcAuthentication()
+            .dataSource(dataSource)
+            .withDefaultSchema()
+            .withUser("admin")
+            .password(passwordEncoder.encode("123456"))
+            .roles("USER")
 
 
     }
+
 
     @Bean
     fun passwordEndcoder() = BCryptPasswordEncoder()
@@ -85,7 +102,6 @@ class WebAuthConfig(
             .logout()
             .logoutUrl("/internal/logout")
             .and()
-            .csrf().disable() //TODO("add csrf protection")
         //.cors().disable()
 
     }

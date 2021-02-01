@@ -1,16 +1,19 @@
 package eu.musicnova.musicnova
 
+import eu.musicnova.api.Module
+import eu.musicnova.musicnova.boot.MusicnovaCommandlineBoot
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
 import org.springframework.scheduling.annotation.EnableScheduling
-import org.springframework.web.socket.config.annotation.EnableWebSocket
-import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker
+import picocli.CommandLine
+import kotlin.system.exitProcess
 
 @SpringBootApplication
 @EnableScheduling
-class MusicnovaApplication
-
-fun main(args: Array<String>) {
-    runApplication<MusicnovaApplication>(*args)
-
+class MusicnovaApplication:Module {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            MusicnovaCommandlineBoot.accept(args)
+        }
+    }
 }

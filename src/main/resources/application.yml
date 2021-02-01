@@ -42,7 +42,7 @@ spring:
     driver-class-name: org.h2.Driver
     #data-password: ''
     #data-username: ''
-    url: 'jdbc:h2:file:./database;TRACE_LEVEL_FILE=0;TRACE_LEVEL_SYSTEM_OUT=0;DB_CLOSE_DELAY=-1'
+    url: 'jdbc:h2:file:./database;TRACE_LEVEL_FILE=0;TRACE_LEVEL_SYSTEM_OUT=0;AUTO_SERVER=TRUE'
     type: com.zaxxer.hikari.HikariDataSource
 
     hikari:
@@ -54,6 +54,8 @@ spring:
     hibernate:
       ddl-auto: update
       use-new-id-generator-mappings: true
+    show-sql: false
+    generate-ddl: true
 
   session:
     jdbc:
@@ -63,6 +65,9 @@ spring:
     location:
       - 'file:./config.yml'
       - 'file:./config.yaml'
+  output:
+    ansi:
+      enabled: always
 logging:
   file:
     name: logs/latest.log
@@ -73,3 +78,24 @@ logging:
       max-history: 20
       clean-history-on-start: false
       max-file-size: 10MB
+graphql:
+  servlet:
+    enabled: true
+    mapping: /api/graphQL
+    subscriptions:
+      websocket:
+        path: /api/graphQL-WS
+graphiql:
+  base-path: /
+  mapping: /api/graphiQL
+  static:
+    basePath: /
+
+  cdn:
+    enabled: true
+  subscriptions:
+    reconnect: true
+    timeout: 30
+  endpoint:
+    graphql: /api/graphQL
+    subscriptions: /api/graphQL-WS

@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+        lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <meta name="_csrf" content="${_csrf.token}"/>
-    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+
+    <link rel="manifest" href="../misc/manifest.json">
+    <!--suppress ThymeleafVariablesResolveInspection -->
+    <meta id="csrf_token" th:content="${_csrf.token}"/>
+    <!--suppress ThymeleafVariablesResolveInspection -->
+    <meta id="csrf_paramName" th:content="${_csrf.parameterName}"/>
+
 </head>
 <body class="">
 <div>
@@ -21,7 +30,6 @@
                     <input id="input_password" class="input " type="password" placeholder="Password">
                 </div>
             </div>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="block">
                 <button class="button is-primary">Login</button>
             </div>
