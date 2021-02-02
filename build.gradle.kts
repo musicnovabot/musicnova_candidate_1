@@ -71,7 +71,7 @@ dependencies {
     //implementation("com.graphql-java:graphql-java-spring-boot-starter-webmvc:2.0")
     implementation("com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0")
     implementation("com.graphql-java-kickstart:graphiql-spring-boot-starter:11.0.0")
-    implementation("com.graphql-java:graphql-java:14.0")
+    implementation("com.graphql-java:graphql-java:14.1")
     implementation("com.expediagroup", "graphql-kotlin-schema-generator", "3.7.0")
     //implementation("com.expediagroup", "graphql-kotlin-spring-server", "3.7.0")
 
