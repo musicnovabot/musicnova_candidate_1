@@ -1,0 +1,17 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+eu.musicnova.api
+eu.musicnova.api.event
+eu.musicnova.musicnova
+eu.musicnova.musicnova.boot
+eu.musicnova.musicnova.bot
+eu.musicnova.musicnova.database
+eu.musicnova.musicnova.scheduler.jobs
+eu.musicnova.musicnova.tasks
+eu.musicnova.musicnova.web
+eu.musicnova.musicnova.web.api
+eu.musicnova.musicnova.web.graphql
+eu.musicnova.musicnova.web.graphql.schema
+org.greenrobot.eventbus
+

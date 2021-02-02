@@ -1,8 +1,0 @@
-$dokka.format:jekyll-v1
-$dokka.linkExtension:md
-
-eu.musicnova.api
-eu.musicnova.musicnova
-eu.musicnova.musicnova.scheduler.jobs
-eu.musicnova.musicnova.web
-
