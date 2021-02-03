@@ -59,7 +59,7 @@ dependencies {
     implementation("com.github.ben-manes.caffeine:caffeine:2.8.8")
     implementation("com.github.ben-manes.caffeine:guava:2.8.8")
 
-    implementation("com.github.manevolent:ts3j:1.0.2")
+    implementation("com.github.manevolent:ts3j:25a7c94596")
     implementation("net.dv8tion:JDA:4.2.0_227")
     implementation("com.sedmelluq:lavaplayer:1.3.67")
     implementation("org.greenrobot:eventbus:3.2.0")
@@ -90,7 +90,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    compileOnly("org.projectlombok:lombok")
+    //compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.h2database:h2")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
@@ -155,6 +155,7 @@ tasks.withType<Test> {
 
 configurations.all {
     exclude("org.springframework.boot", "spring-boot-starter-tomcat")
+    exclude ("club.minnced","opus-java")
 }
 node {
     version = "14.9.0"
@@ -182,4 +183,17 @@ idea {
 }
 tasks {
 
+    val task = create<org.jetbrains.dokka.gradle.DokkaTask>("mn-root-html")
+    withType<org.jetbrains.dokka.gradle.DokkaMultiModuleTask>() {
+        this.enabled = true
+        addChildTask(task)
+
+
+    }
+    withType<org.jetbrains.dokka.gradle.DokkaTask>() {
+        this.enabled = true
+
+
+    }
 }
+

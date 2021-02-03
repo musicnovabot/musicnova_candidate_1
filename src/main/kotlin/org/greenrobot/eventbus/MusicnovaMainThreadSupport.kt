@@ -1,6 +1,6 @@
 package org.greenrobot.eventbus
 
-import eu.musicnova.api.MainThreadRunner
+import eu.musicnova.musicnova.MainThreadRunner
 
 
 private object MusicnovaMainThreadSupport : MainThreadSupport {

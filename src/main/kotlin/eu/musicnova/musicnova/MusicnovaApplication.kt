@@ -7,7 +7,10 @@ import org.springframework.scheduling.annotation.EnableScheduling
 import picocli.CommandLine
 import kotlin.system.exitProcess
 
-@SpringBootApplication
+//eu.musicnova.musicnova
+@SpringBootApplication(
+
+)
 @EnableScheduling
 class MusicnovaApplication:Module {
     companion object {

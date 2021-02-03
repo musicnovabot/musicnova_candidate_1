@@ -1,6 +1,5 @@
-package eu.musicnova.api
+package eu.musicnova.musicnova
 
-import eu.musicnova.musicnova.logger
 import kotlinx.coroutines.MainCoroutineDispatcher
 import java.util.concurrent.Executor
 import java.util.concurrent.LinkedBlockingQueue

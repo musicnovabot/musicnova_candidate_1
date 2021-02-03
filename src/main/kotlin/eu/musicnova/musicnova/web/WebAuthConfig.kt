@@ -29,16 +29,10 @@ class WebAuthConfig(
     lateinit var passwordEncoder: PasswordEncoder
     override fun configure(auth: AuthenticationManagerBuilder) {
         //auth.apply(musicnovaUserDetailsManager)
-        //auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder.encode("123456")).roles("USER")
+        auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder.encode("123456")).roles("USER")
 
         //auth.jdbcAuthentication().withDefaultSchema()
-        auth.jdbcAuthentication()
-            .dataSource(dataSource)
-            .withDefaultSchema()
-            .withUser("admin")
-            .password(passwordEncoder.encode("123456"))
-            .roles("USER")
-
+        //auth.jdbcAuthentication().dataSource(dataSource).withDefaultSchema().withUser("admin").password(passwordEncoder.encode("123456")).roles("USER")
 
     }
 
