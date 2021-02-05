@@ -51,7 +51,7 @@ dependencies {
 
     implementation("com.google.auto.service:auto-service:1.0-rc7")
     kapt("com.google.auto.service:auto-service:1.0-rc7")
-    implementation("org.atteo.classindex:classindex:3.4")
+    implementation("org.atteo.classindex:classindex:3.10")
     kapt("org.atteo.classindex:classindex:3.4")
 
     implementation("org.fusesource.jansi:jansi:2.2.0")
