@@ -55,7 +55,7 @@ dependencies {
     kapt("org.atteo.classindex:classindex:3.4")
 
     implementation("org.fusesource.jansi:jansi:2.2.0")
-    implementation("com.github.oshi:oshi-core:5.4.1")
+    implementation("com.github.oshi:oshi-core:5.5.1")
     implementation("com.github.ben-manes.caffeine:caffeine:2.8.8")
     implementation("com.github.ben-manes.caffeine:guava:2.8.8")
 
