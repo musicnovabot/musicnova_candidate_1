@@ -47,8 +47,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/core": "7.12.13",
-    "@babel/preset-env": "7.12.13",
+    "@babel/core": "7.13.10",
+    "@babel/preset-env": "7.13.10",
     "@babel/preset-react": "7.12.13",
     "@hot-loader/react-dom": "17.0.1",
     "@types/cleave.js": "1.4.4",
