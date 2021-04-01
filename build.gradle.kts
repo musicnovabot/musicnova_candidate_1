@@ -60,7 +60,7 @@ dependencies {
     implementation("com.github.ben-manes.caffeine:guava:2.8.8")
 
     implementation("com.github.manevolent:ts3j:25a7c94596")
-    implementation("net.dv8tion:JDA:4.2.0_227")
+    implementation("net.dv8tion:JDA:4.2.0_247")
     implementation("com.sedmelluq:lavaplayer:1.3.67")
     implementation("org.greenrobot:eventbus:3.2.0")
     implementation("io.ktor:ktor-client-okhttp:1.5.1")
