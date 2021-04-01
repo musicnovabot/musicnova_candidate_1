@@ -61,7 +61,7 @@ dependencies {
 
     implementation("com.github.manevolent:ts3j:25a7c94596")
     implementation("net.dv8tion:JDA:4.2.0_227")
-    implementation("com.sedmelluq:lavaplayer:1.3.67")
+    implementation("com.sedmelluq:lavaplayer:1.3.73")
     implementation("org.greenrobot:eventbus:3.2.0")
     implementation("io.ktor:ktor-client-okhttp:1.5.1")
     implementation("com.coreoz:windmill:1.2.0")
