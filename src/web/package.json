@@ -58,7 +58,7 @@
     "css-loader": "5.0.1",
     "css-minimizer-webpack-plugin": "1.2.0",
     "html-webpack-link-type-plugin": "1.0.4",
-    "html-webpack-plugin": "4.5.1",
+    "html-webpack-plugin": "5.5.0",
     "html-webpack-tags-plugin": "2.0.17",
     "image-minimizer-webpack-plugin": "2.2.0",
     "json-minimizer-webpack-plugin": "2.1.0",
