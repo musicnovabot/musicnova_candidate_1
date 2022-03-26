@@ -63,7 +63,7 @@ dependencies {
     implementation("net.dv8tion:JDA:4.2.0_227")
     implementation("com.sedmelluq:lavaplayer:1.3.67")
     implementation("org.greenrobot:eventbus:3.2.0")
-    implementation("io.ktor:ktor-client-okhttp:1.5.1")
+    implementation("io.ktor:ktor-client-okhttp:1.6.8")
     implementation("com.coreoz:windmill:1.2.0")
 
     implementation("info.picocli:picocli:4.6.1")
