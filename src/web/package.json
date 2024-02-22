@@ -19,7 +19,7 @@
     "@types/sockjs-client": "^1.5.0",
     "@types/stompjs": "^2.3.4",
     "@vizuaalog/bulmajs": "^0.12.0",
-    "axios": "^0.21.1",
+    "axios": "^0.28.0",
     "babel-plugin-loop-optimizer": "^1.4.1",
     "babel-plugin-object-to-json-parse": "^0.2.1",
     "bootstrap": "^4.6.0",
