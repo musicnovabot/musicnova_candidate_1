@@ -52,7 +52,7 @@
     "@babel/preset-react": "7.12.13",
     "@hot-loader/react-dom": "17.0.1",
     "@types/cleave.js": "1.4.4",
-    "autoprefixer": "10.2.4",
+    "autoprefixer": "10.4.20",
     "babel-loader": "8.2.2",
     "clean-webpack-plugin": "3.0.0",
     "css-loader": "5.0.1",
