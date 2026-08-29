@@ -33,7 +33,7 @@
     "moment": "^2.29.1",
     "net": "^1.0.2",
     "popper.js": "^1.16.1",
-    "protobufjs": "^6.10.2",
+    "protobufjs": "^7.0.0",
     "querystring": "^0.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
